@@ -102,11 +102,11 @@ const colorSchemes: Partial<Record<SupportedColorScheme, ColorSystemOptions>> | 
         main: COLORS.BRAND,
       },
       text: {
-        primary: COLORS.BLACK,
+        primary: COLORS.WHITE10,
       },
       background: {
-        paper: COLORS.BLACK10,
-        default: COLORS.BLACK,
+        paper: COLORS.BLACK20,
+        default: COLORS.BLACK30,
       },
       error: {
         light: COLORS.RED,

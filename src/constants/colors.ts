@@ -1,6 +1,7 @@
 export const COLORS = {
   TRANSPARENT: 'transparent',
   WHITE: '#FFFFFF',
+  WHITE10: '#E8E8E8',
   BRAND: '#0BA864',
   BRANDGRADIENT:
     'linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.00) 100%), #0BA864',
@@ -8,6 +9,8 @@ export const COLORS = {
   BRAND20: '#F4FBF8',
   BLACK: '#1C1C1C',
   BLACK10: 'rgba(0, 0, 0, 0.06)',
+  BLACK20: '#1A1A1A',
+  BLACK30: '#272727',
   GREY: '#E8E8E8',
   GREY10: '#969696',
   GREY20: '#F7F7F7',
