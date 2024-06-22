@@ -1,7 +1,39 @@
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import checker from 'vite-plugin-checker'
+import eslint from 'vite-plugin-eslint'
+import htmlPlugin from 'vite-plugin-html-config'
+import svgrPlugin from 'vite-plugin-svgr'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  build: {
+    emptyOutDir: true,
+    cssCodeSplit: true,
+  },
+  plugins: [
+    react(),
+    htmlPlugin({
+      favicon: '/fav.svg',
+      metas: [
+        {
+          charset: 'UTF-8',
+        },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1.0',
+        },
+      ],
+    }),
+    svgrPlugin(),
+    tsconfigPaths(),
+    checker({
+      overlay: true,
+      typescript: true,
+    }),
+    eslint({
+      cache: false,
+      include: ['./src/**/*.tsx', './src/**/*.ts'],
+    }),
+  ],
 })
