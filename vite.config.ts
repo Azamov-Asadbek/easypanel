@@ -5,6 +5,7 @@ import eslint from 'vite-plugin-eslint'
 import htmlPlugin from 'vite-plugin-html-config'
 import svgrPlugin from 'vite-plugin-svgr'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import Unfonts from 'unplugin-fonts/vite'
 
 export default defineConfig({
   build: {
@@ -34,6 +35,20 @@ export default defineConfig({
     eslint({
       cache: false,
       include: ['./src/**/*.tsx', './src/**/*.ts'],
+    }),
+    Unfonts({
+      google: {
+        preconnect: false,
+        display: 'block',
+        text: 'ViteAwsom',
+        injectTo: 'head-prepend',
+        families: [
+          {
+            name: 'Inter',
+            defer: true,
+          },
+        ],
+      },
     }),
   ],
 })

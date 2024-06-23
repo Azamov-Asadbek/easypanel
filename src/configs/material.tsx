@@ -1,9 +1,11 @@
 import { COLORS, DARK_COLORS, LIGHT_COLORS } from '@/constants/colors'
+import { Box } from '@mui/material'
 import {
   experimental_extendTheme as extendTheme,
   type ColorSystemOptions,
   type SupportedColorScheme,
 } from '@mui/material/styles'
+import { ReactComponent as IconDirectionRow } from '@/assets/icons/direction-row.svg'
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -18,7 +20,7 @@ declare module '@mui/material/styles' {
 }
 
 interface TypographyProps {
-  title: React.CSSProperties
+  'Caps / Caps 2 - 12 Regular': React.CSSProperties
 }
 
 declare module '@mui/material/styles' {
@@ -29,7 +31,7 @@ declare module '@mui/material/styles' {
 
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
-    title: true
+    'Caps / Caps 2 - 12 Regular': true
   }
 }
 
@@ -123,13 +125,14 @@ export const theme = extendTheme({
     borderRadius: 8,
   },
   typography: palette => ({
-    fontFamily: 'Onest, serif !important',
-    title: {
-      fontSize: '24px',
-      fontWeight: 700,
-      lineHeight: '20px',
-      letterSpacing: '0.35px',
-      color: palette.allColors.BLACK,
+    fontFamily: 'Inter, sans-serif !important',
+    'Caps / Caps 2 - 12 Regular': {
+      fontSize: '12px',
+      fontWeight: 400,
+      lineHeight: '16px',
+      letterSpacing: '0.48px',
+      textTransform: 'uppercase',
+      color: palette.colors['Grayscale-Content-3'],
     },
   }),
 
@@ -145,9 +148,14 @@ export const theme = extendTheme({
 
     MuiIconButton: {
       styleOverrides: {
+        sizeSmall: {
+          width: 24,
+          height: 24,
+          borderRadius: '4px',
+          padding: '0 !important',
+        },
         root: ({ ownerState, theme }) => ({
-          padding: 0,
-          p: 0,
+          padding: '0 !important',
           width: 38,
           height: 38,
           borderRadius: '4px',
@@ -215,6 +223,122 @@ export const theme = extendTheme({
           }),
         },
       ],
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          height: 46,
+          '&.MuiInputBase-sizeSmall': {
+            height: 40,
+          },
+          backgroundColor: theme.palette.background.paper,
+          'input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active':
+            {
+              fontWeight: 400,
+              fontSize: '16px',
+              borderRadius: '0 8px 8px 0',
+            },
+          ':has(.MuiInputAdornment-positionStart)': {
+            paddingLeft: '20px !important',
+            input: {
+              paddingLeft: '0 !important',
+            },
+          },
+          ':has(.MuiInputAdornment-positionEnd)': {
+            paddingRight: '8px !important',
+            input: {
+              paddingRight: '0 !important',
+            },
+          },
+          fieldset: {
+            legend: {
+              display: 'none',
+            },
+          },
+          input: {
+            padding: '8px 12px !important',
+            fontSize: '16px',
+            fontWeight: 400,
+          },
+        }),
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          borderRadius: '8px',
+          '&.MuiInputBase-sizeSmall': {
+            borderRadius: '8px',
+          },
+          '& fieldset': {
+            top: 0,
+            borderWidth: '1px',
+            borderColor: theme.palette.colors['Grayscale-Border'],
+            boxShadow: `0px 1px 1px 0px ${theme.palette.allColors.BLACK10}`,
+          },
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: `${theme.palette.colors.Brand} !important`,
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderWidth: '1px',
+            borderColor: `${theme.palette.colors.Brand} !important`,
+          },
+          '&.Mui-error .MuiOutlinedInput-notchedOutline': {
+            borderWidth: '1px',
+            borderColor: `${theme.palette.allColors.RED} !important`,
+          },
+        }),
+      },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        select: ({ theme }) => ({
+          padding: '8px 12px',
+          color: theme.palette.colors['Grayscale-Content-3'],
+        }),
+      },
+      defaultProps: {
+        MenuProps: {
+          style: { zIndex: 9500, maxHeight: '300px' },
+        },
+        IconComponent: props => (
+          <Box
+            {...props}
+            sx={{
+              width: '32px !important',
+              height: '40px  !important',
+              display: 'flex',
+              right: '0px !important',
+              justifyContent: 'flex-end !important',
+              top: 'calc(50% - 20px) !important',
+              '&.MuiSelect-iconOpen': {
+                transform: 'rotate(0)',
+              },
+            }}
+          >
+            <IconDirectionRow />
+          </Box>
+        ),
+      },
+    },
+
+    MuiMenu: {
+      styleOverrides: {
+        paper: ({ theme }) => ({
+          marginTop: '8px',
+          borderRadius: '8px',
+          background: theme.palette.background.paper,
+          border: `1px solid ${theme.palette.colors['Grayscale-Border']}`,
+          boxShadow: `0px 2px 40px 0px ${theme.palette.allColors.BLACK10}`,
+        }),
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          borderColor: theme.palette.colors['Grayscale-Border'],
+        }),
+      },
     },
   },
 })

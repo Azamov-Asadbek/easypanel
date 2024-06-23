@@ -20,7 +20,7 @@ export const MenuContent = () => {
       p='24px 16px'
       borderRight={theme => `1px solid${theme.palette.colors['Grayscale-Border']}`}
     >
-      <Stack gap='48px' alignItems='center'>
+      <Stack gap='48px' width='100%' alignItems='center'>
         <Link to='/'>{mode === 'light' ? <IconLightLogo /> : <IconDarkLogo />}</Link>
         <Stack gap='32px' alignItems='center'>
           {SIDEBAR.map(({ href, Icon }) => (
@@ -36,7 +36,7 @@ export const MenuContent = () => {
         </Stack>
       </Stack>
 
-      <Stack gap='24px' alignItems='center'>
+      <Stack width='100%' gap='24px' alignItems='center'>
         <IconButton>
           <IconSearch />
         </IconButton>
