@@ -1,17 +1,20 @@
 import { Suspense } from '@/components/suspense'
-import { Container, Stack } from '@mui/material'
 import { Outlet } from 'react-router-dom'
-import { Hoc } from './hoc'
+import { Sidebar } from './components/sidebar/sidebar'
+import { Container, Wrapper } from './style'
 const Layout = () => (
-  <Hoc>
-    <Stack component='main' minHeight='100vh' width='100%'>
-      <Suspense>
-        <Container>
+  // <Hoc>
+  <Container>
+    <Sidebar />
+    <Wrapper>
+      <main>
+        <Suspense>
           <Outlet />
-        </Container>
-      </Suspense>
-    </Stack>
-  </Hoc>
+        </Suspense>
+      </main>
+    </Wrapper>
+  </Container>
+  // </Hoc>
 )
 
 export default Layout

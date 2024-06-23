@@ -99,7 +99,7 @@ const colorSchemes: Partial<Record<SupportedColorScheme, ColorSystemOptions>> | 
       allColors: COLORS,
       colors: DARK_COLORS,
       primary: {
-        main: COLORS.BRAND,
+        main: COLORS.BRAND30,
       },
       text: {
         primary: COLORS.WHITE10,
@@ -132,4 +132,89 @@ export const theme = extendTheme({
       color: palette.allColors.BLACK,
     },
   }),
+
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: theme => ({
+        textarea: {
+          fontSize: '14px !important',
+          fontWeight: '500 !important',
+        },
+      }),
+    },
+
+    MuiIconButton: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          padding: 0,
+          p: 0,
+          width: 38,
+          height: 38,
+          borderRadius: '4px',
+          svg: {
+            width: '28px',
+          },
+          path: {
+            fill: theme.palette.colors['Grayscale-Content-3'],
+          },
+          '.MuiTouchRipple-root .MuiTouchRipple-child': {
+            borderRadius: '4px',
+          },
+          ...(ownerState.radius && {
+            borderRadius:
+              typeof ownerState.radius === 'number' ? `${ownerState.radius}px` : ownerState.radius,
+            '.MuiTouchRipple-root .MuiTouchRipple-child': {
+              borderRadius:
+                typeof ownerState.radius === 'number'
+                  ? `${ownerState.radius}px`
+                  : ownerState.radius,
+            },
+          }),
+        }),
+      },
+      variants: [
+        {
+          props: { color: 'contained' },
+          style: ({ theme }) => ({
+            border: `1px solid${theme.palette.colors['Grayscale-Border']}`,
+            borderRadius: '4px',
+            backgroundColor: theme.palette.allColors.TRANSPARENT,
+            boxShadow: `0px 1px 1px 0px ${theme.palette.allColors.BLACK10}`,
+            '&:hover': {
+              backgroundColor: theme.palette.allColors.TRANSPARENT,
+            },
+          }),
+        },
+        {
+          props: { color: 'filled' },
+          style: ({ theme }) => ({
+            border: `1px solid${theme.palette.colors['Grayscale-Border']}`,
+            borderRadius: '4px',
+            backgroundColor: theme.palette.colors.Brand,
+            boxShadow: `0px 1px 1px 0px ${theme.palette.allColors.BLACK10}`,
+            '&:hover': {
+              backgroundColor: theme.palette.colors.Brand,
+            },
+          }),
+        },
+        {
+          props: { color: 'white' },
+          style: ({ theme }) => ({
+            border: `1px solid${theme.palette.colors['Grayscale-Border']}`,
+            boxShadow: `0px 1px 1px 0px ${theme.palette.allColors.BLACK10}`,
+            borderRadius: '4px',
+            color: theme.palette.colors.Brand,
+            backgroundColor: theme.palette.background.paper,
+
+            path: {
+              fill: theme.palette.colors.Brand,
+            },
+            '&:hover': {
+              backgroundColor: theme.palette.background.paper,
+            },
+          }),
+        },
+      ],
+    },
+  },
 })

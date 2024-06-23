@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: ROUTER.SERVICES,
+        path: '',
         element: <Services />,
       },
     ],

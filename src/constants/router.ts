@@ -1,4 +1,9 @@
 export const ROUTER = {
   HOME: '/',
-  SERVICES: '/services',
+  SERVICES: '/',
+  DASHBOARD: '/dashboard',
+  PROJECTS: '/projects',
+  MONITORING: '/monitoring',
+  GETHELP: '/get-help',
+  SETTINGS: '/settings',
 }
