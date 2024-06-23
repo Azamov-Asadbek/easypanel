@@ -37,7 +37,7 @@ declare module '@mui/material/Typography' {
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
-    'contained-light': true
+    white: true
   }
   interface ButtonPropsSizeOverrides {
     extraLarge: true
@@ -145,7 +145,70 @@ export const theme = extendTheme({
         },
       }),
     },
+    MuiButton: {
+      defaultProps: {
+        variant: 'contained',
+      },
+      styleOverrides: {
+        sizeExtraLarge: {
+          height: 52,
+          borderRadius: '12px',
+        },
+        sizeLarge: {
+          height: 46,
+          borderRadius: '8px',
+        },
+        sizeMedium: {
+          height: 44,
+        },
+        sizeSmall: {
+          height: 38,
+        },
+        sizeExtraSmall: {
+          height: 29,
+        },
+        root: ({ theme }) => ({
+          fontWeight: 400,
+          fontSize: '16px',
+          boxShadow: `0px 1px 1px 0px ${theme.palette.allColors.BLACK10}`,
+          borderRadius: '8px',
+          whiteSpace: 'nowrap',
+          textTransform: 'inherit',
+          padding: '10px 16px',
+          justifyContent: 'flex-start',
+          ':hover': {
+            boxShadow: `0px 1px 1px 0px ${theme.palette.allColors.BLACK10}`,
+          },
+          '&.MuiButton-sizeMedium': {
+            borderRadius: '8px',
+          },
 
+          '&.MuiLoadingButton-loading': {
+            '.MuiCircularProgress-root': {
+              width: '18px !important',
+              height: '18px !important',
+            },
+          },
+        }),
+      },
+      variants: [
+        {
+          props: { variant: 'text' },
+          style: ({ theme }) => ({
+            boxShadow: 'none !important',
+            color: theme.palette.colors['Grayscale-Content-2'],
+          }),
+        },
+        {
+          props: { variant: 'white' },
+          style: ({ theme }) => ({
+            border: `1px solid ${theme.palette.colors['Grayscale-Border']}`,
+            color: theme.palette.colors['Grayscale-Content-1'],
+            background: theme.palette.background.paper,
+          }),
+        },
+      ],
+    },
     MuiIconButton: {
       styleOverrides: {
         sizeSmall: {

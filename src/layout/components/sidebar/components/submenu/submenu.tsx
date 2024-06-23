@@ -1,7 +1,20 @@
-import { Divider, IconButton, MenuItem, Select, Stack, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  Divider,
+  IconButton,
+  MenuItem,
+  Select,
+  Stack,
+  Typography,
+} from '@mui/material'
 import { ReactComponent as IconFilter } from '@/assets/icons/filter.svg'
 import { ReactComponent as IconAdd } from '@/assets/icons/add.svg'
-
+const services = [
+  { name: 'Calypso', status: 1 },
+  { name: 'Sparklens', status: 1 },
+  { name: 'API Demo', status: 0 },
+]
 export const SubMenuContent = () => {
   return (
     <Stack p='24px' gap='24px' width='300px'>
@@ -26,6 +39,28 @@ export const SubMenuContent = () => {
           <IconButton size='small'>
             <IconAdd />
           </IconButton>
+        </Stack>
+        <Stack gap='4px'>
+          {services?.map((service, index: number) => (
+            <Button
+              variant={index === 0 ? 'white' : 'text'}
+              startIcon={
+                <Box
+                  width={8}
+                  height={8}
+                  borderRadius='50%'
+                  bgcolor={theme =>
+                    service.status === 1
+                      ? theme.palette.colors.Brand
+                      : theme.palette.colors['Grayscale-Content-3']
+                  }
+                />
+              }
+              key={service.name}
+            >
+              {service.name}
+            </Button>
+          ))}
         </Stack>
       </Stack>
     </Stack>
