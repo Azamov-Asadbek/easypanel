@@ -26,6 +26,7 @@ export const SubMenuContent = () => {
           <IconFilter />
         </IconButton>
       </Stack>
+
       <Divider />
       <Stack gap='12px' width='100%'>
         <Stack

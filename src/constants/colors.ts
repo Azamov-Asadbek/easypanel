@@ -1,7 +1,6 @@
 export const COLORS = {
   TRANSPARENT: 'transparent',
   WHITE: '#FFFFFF',
-  WHITE10: '#E8E8E8',
   WHITE20: '#BABABA',
   BRAND: '#0BA864',
   BRANDGRADIENT:
@@ -9,6 +8,8 @@ export const COLORS = {
   BRAND10: '#D5F5E6',
   BRAND20: '#F4FBF8',
   BRAND30: '#16D180',
+  BRAND10GRADIENT:
+    'linear-gradient(0deg, rgba(11, 168, 100, 0.10) 0%, rgba(11, 168, 100, 0.10) 100%), #1A1A1A',
   BLACK: '#1C1C1C',
   BLACK10: 'rgba(0, 0, 0, 0.06)',
   BLACK20: '#1A1A1A',
@@ -25,17 +26,21 @@ export const COLORS = {
 }
 
 export const LIGHT_COLORS = {
-  'Grayscale-Border': COLORS.GREY,
   Brand: COLORS.BRAND,
+  'Grayscale-Border': COLORS.GREY,
   'Grayscale-Content-1': COLORS.BLACK,
   'Grayscale-Content-2': COLORS.GREY30,
   'Grayscale-Content-3': COLORS.GREY10,
+  'Brand-Border': COLORS.BRAND10,
+  'Brand-background': COLORS.BRAND20,
 }
 
 export const DARK_COLORS: typeof LIGHT_COLORS = {
-  'Grayscale-Border': COLORS.GREY40,
   Brand: COLORS.BRAND30,
-  'Grayscale-Content-1': COLORS.WHITE10,
+  'Grayscale-Border': COLORS.GREY40,
+  'Grayscale-Content-1': COLORS.GREY,
   'Grayscale-Content-2': COLORS.WHITE20,
   'Grayscale-Content-3': COLORS.GREY50,
+  'Brand-Border': COLORS.BRAND30,
+  'Brand-background': COLORS.BRAND10GRADIENT,
 }

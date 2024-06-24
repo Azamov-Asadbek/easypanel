@@ -1,11 +1,12 @@
-import { Stack } from '@mui/material'
+import { Divider, Stack } from '@mui/material'
+import { Header } from './components/header'
 
 const Services = () => {
   return (
-    <Stack p={{ xs: '16px', md: '24px' }} width='100%' position='relative'>
-      <h1>Salom</h1>
-      dsada
-    </Stack>
+    <>
+      <Header />
+      <Divider />
+    </>
   )
 }
 export default Services

@@ -20,7 +20,11 @@ declare module '@mui/material/styles' {
 }
 
 interface TypographyProps {
+  link: React.CSSProperties
   'Caps / Caps 2 - 12 Regular': React.CSSProperties
+  'Heading / H4 - 20': React.CSSProperties
+  'Heading / H5 - 16': React.CSSProperties
+  'Badge-x-base': React.CSSProperties
 }
 
 declare module '@mui/material/styles' {
@@ -31,7 +35,11 @@ declare module '@mui/material/styles' {
 
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
+    link: true
     'Caps / Caps 2 - 12 Regular': true
+    'Heading / H4 - 20': true
+    'Heading / H5 - 16': true
+    'Badge-x-base': true
   }
 }
 
@@ -104,7 +112,7 @@ const colorSchemes: Partial<Record<SupportedColorScheme, ColorSystemOptions>> | 
         main: COLORS.BRAND30,
       },
       text: {
-        primary: COLORS.WHITE10,
+        primary: COLORS.GREY,
       },
       background: {
         paper: COLORS.BLACK20,
@@ -124,17 +132,6 @@ export const theme = extendTheme({
   shape: {
     borderRadius: 8,
   },
-  typography: palette => ({
-    fontFamily: 'Inter, sans-serif !important',
-    'Caps / Caps 2 - 12 Regular': {
-      fontSize: '12px',
-      fontWeight: 400,
-      lineHeight: '16px',
-      letterSpacing: '0.48px',
-      textTransform: 'uppercase',
-      color: palette.colors['Grayscale-Content-3'],
-    },
-  }),
 
   components: {
     MuiCssBaseline: {
@@ -145,6 +142,70 @@ export const theme = extendTheme({
         },
       }),
     },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Inter, sans-serif !important',
+        },
+      },
+      variants: [
+        {
+          props: { variant: 'link' },
+          style: ({ theme }) => ({
+            fontSize: '13px',
+            fontWeight: 400,
+            lineHeight: '20px',
+            color: theme.palette.colors.Brand,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+          }),
+        },
+        {
+          props: { variant: 'Caps / Caps 2 - 12 Regular' },
+          style: ({ theme }) => ({
+            fontSize: '12px',
+            fontWeight: 400,
+            lineHeight: '16px',
+            letterSpacing: '0.48px',
+            textTransform: 'uppercase',
+            color: theme.palette.colors['Grayscale-Content-3'],
+          }),
+        },
+        {
+          props: { variant: 'Heading / H5 - 16' },
+          style: ({ theme }) => ({
+            fontSize: '16px',
+            fontWeight: 500,
+            lineHeight: '24px',
+            color: theme.palette.colors.Brand,
+          }),
+        },
+        {
+          props: { variant: 'Heading / H4 - 20' },
+          style: ({ theme }) => ({
+            fontSize: '20px',
+            fontWeight: 500,
+            lineHeight: '28px',
+            color: theme.palette.colors['Grayscale-Content-1'],
+          }),
+        },
+        {
+          props: { variant: 'Badge-x-base' },
+          style: ({ theme }) => ({
+            padding: '2px 6px',
+            borderRadius: '6px',
+            border: `1px solid ${theme.palette.colors['Brand-Border']}`,
+            background: theme.palette.colors['Brand-background'],
+            fontSize: '13px',
+            fontWeight: 500,
+            lineHeight: '20px',
+            color: theme.palette.colors.Brand,
+          }),
+        },
+      ],
+    },
+
     MuiButton: {
       defaultProps: {
         variant: 'contained',
@@ -162,7 +223,8 @@ export const theme = extendTheme({
           height: 44,
         },
         sizeSmall: {
-          height: 38,
+          height: 40,
+          fontSize: '16px',
         },
         sizeExtraSmall: {
           height: 29,
@@ -205,6 +267,17 @@ export const theme = extendTheme({
             border: `1px solid ${theme.palette.colors['Grayscale-Border']}`,
             color: theme.palette.colors['Grayscale-Content-1'],
             background: theme.palette.background.paper,
+          }),
+        },
+        {
+          props: { variant: 'outlined' },
+          style: ({ theme }) => ({
+            border: `1px solid ${theme.palette.colors['Grayscale-Border']}`,
+            color: theme.palette.colors['Grayscale-Content-2'],
+            background: theme.palette.background.paper,
+            '&:hover': {
+              border: `1px solid ${theme.palette.colors['Grayscale-Border']}`,
+            },
           }),
         },
       ],
