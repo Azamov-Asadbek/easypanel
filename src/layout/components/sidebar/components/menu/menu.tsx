@@ -1,7 +1,7 @@
 import { ReactComponent as IconDarkMode } from '@/assets/icons/dark.svg'
+import { ReactComponent as IconDarkLogo } from '@/assets/icons/darkLogo.svg'
 import { ReactComponent as IconExit } from '@/assets/icons/exit.svg'
 import { ReactComponent as IconLightLogo } from '@/assets/icons/lightlogo.svg'
-import { ReactComponent as IconDarkLogo } from '@/assets/icons/darkLogo.svg'
 import { ReactComponent as IconSearch } from '@/assets/icons/search.svg'
 import { SIDEBAR } from '@/constants/sidebar'
 import { IconButton, Stack, useColorScheme } from '@mui/material'
@@ -14,6 +14,7 @@ export const MenuContent = () => {
     const newMode = mode === 'dark' ? 'light' : 'dark'
     setMode(newMode)
   }
+
   return (
     <Stack
       justifyContent='space-between'

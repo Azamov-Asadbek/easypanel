@@ -25,6 +25,7 @@ interface TypographyProps {
   'Heading / H4 - 20': React.CSSProperties
   'Paragraph / P2 - 20': React.CSSProperties
   'Heading / H5 - 16': React.CSSProperties
+  'Paragraph / P3 - 13': React.CSSProperties
   'Badge-x-base': React.CSSProperties
 }
 
@@ -41,6 +42,7 @@ declare module '@mui/material/Typography' {
     'Heading / H4 - 20': true
     'Paragraph / P2 - 20': true
     'Heading / H5 - 16': true
+    'Paragraph / P3 - 13': true
     'Badge-x-base': true
   }
 }
@@ -200,6 +202,15 @@ export const theme = extendTheme({
             fontWeight: 400,
             lineHeight: '24px',
             color: theme.palette.colors['Grayscale-Content-2'],
+          }),
+        },
+        {
+          props: { variant: 'Paragraph / P3 - 13' },
+          style: ({ theme }) => ({
+            fontSize: '13px',
+            fontWeight: 400,
+            lineHeight: '20px',
+            color: theme.palette.colors['Grayscale-Content-3'],
           }),
         },
         {
@@ -404,7 +415,7 @@ export const theme = extendTheme({
               borderRadius: '0 8px 8px 0',
             },
           ':has(.MuiInputAdornment-positionStart)': {
-            paddingLeft: '20px !important',
+            paddingLeft: '12px !important',
             input: {
               paddingLeft: '0 !important',
             },
@@ -454,12 +465,26 @@ export const theme = extendTheme({
             input: {
               fontSize: '16px',
             },
+
             '.MuiInputBase-root': {
               padding: 0,
               borderRadius: '8px',
               height: '40px',
               minHeight: '40px',
               paddingLeft: '6px',
+            },
+            '&.header': {
+              label: {
+                margin: 0,
+              },
+              '.MuiInputBase-root': {
+                background: theme.palette.background.default,
+              },
+              fieldset: {
+                borderWidth: '1px',
+                borderColor: theme.palette.background.default,
+                boxShadow: 'none',
+              },
             },
           }),
         },
@@ -590,6 +615,87 @@ export const theme = extendTheme({
           padding: '8px 0 !important',
           '.MuiTouchRipple-root': {
             display: 'none',
+          },
+        }),
+      },
+    },
+
+    MuiSwipeableDrawer: {
+      defaultProps: {
+        sx: {
+          zIndex: 9000,
+        },
+        ModalProps: {
+          keepMounted: false,
+        },
+        BackdropProps: {
+          sx: theme => ({
+            backgroundColor: theme.palette.colors['Overlay-bg'],
+          }),
+        },
+        PaperProps: {
+          sx: theme => ({
+            maxWidth: '318px',
+            backgroundImage: 'none',
+            minWidth: 'min(80vw, 318px)',
+            padding: '16px',
+            background: theme.palette.background.default,
+          }),
+        },
+      },
+    },
+
+    MuiSwitch: {
+      defaultProps: {
+        disableRipple: true,
+      },
+      styleOverrides: {
+        root: ({ theme }) => ({
+          height: 22,
+          padding: '0',
+          width: 36.19,
+          marginRight: '9px',
+          '& .MuiSwitch-switchBase': {
+            margin: '1.35px 1px',
+            padding: 0,
+            transitionDuration: '300ms',
+            '&.MuiSwitch-switchBase.Mui-checked': {
+              right: '10px',
+            },
+            '&.Mui-checked': {
+              transform: 'translateX(12px)',
+              color: theme.palette.allColors.WHITE,
+              '& + .MuiSwitch-track': {
+                border: 0,
+                opacity: 1,
+                background: theme.palette.colors.Brand,
+              },
+            },
+            '&.Mui-focusVisible .MuiSwitch-thumb': {
+              color: theme.palette.colors['Grayscale-Border'],
+            },
+            '&.Mui-focusVisible.Mui-checked .MuiSwitch-thumb': {
+              color: theme.palette.allColors.WHITE,
+            },
+            '&.Mui-disabled .MuiSwitch-thumb': {
+              color: theme.palette.allColors.WHITE,
+            },
+          },
+          '& .MuiSwitch-thumb': {
+            width: 19.16,
+            height: 19.16,
+            boxSizing: 'border-box',
+          },
+          '& .MuiSwitch-track': {
+            opacity: 1,
+            borderRadius: '20px',
+            backgroundColor: theme.palette.colors['Grayscale-Border'],
+            transition: theme.transitions.create(['background-color'], {
+              duration: 500,
+            }),
+          },
+          '& .Mui-disabled+.MuiSwitch-track': {
+            opacity: '0.5 !important',
           },
         }),
       },

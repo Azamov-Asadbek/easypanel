@@ -13,6 +13,7 @@ export const COLORS = {
     'linear-gradient(0deg, rgba(11, 168, 100, 0.10) 0%, rgba(11, 168, 100, 0.10) 100%), #1A1A1A',
   BLACK: '#1C1C1C',
   BLACK10: 'rgba(0, 0, 0, 0.06)',
+  BLACK40: '#1c1c1c80',
   BLACK20: '#1A1A1A',
   BLACK30: '#272727',
   GREY: '#E8E8E8',
@@ -36,6 +37,7 @@ export const LIGHT_COLORS = {
   'Grayscale-Content-3': COLORS.GREY10,
   'Brand-Border': COLORS.BRAND10,
   'Brand-background': COLORS.BRAND20,
+  'Overlay-bg': COLORS.BLACK40,
 }
 
 export const DARK_COLORS: typeof LIGHT_COLORS = {
@@ -47,4 +49,5 @@ export const DARK_COLORS: typeof LIGHT_COLORS = {
   'Grayscale-Content-3': COLORS.GREY50,
   'Brand-Border': COLORS.BRAND30,
   'Brand-background': COLORS.BRAND10GRADIENT,
+  'Overlay-bg': COLORS.BLACK40,
 }

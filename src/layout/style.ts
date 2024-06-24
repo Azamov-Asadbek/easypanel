@@ -5,6 +5,11 @@ export const Container = styled('div')`
   height: 100%;
   flex-grow: 1;
   display: flex;
+  ${({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+      display: 'block',
+    },
+  })}
 `
 export const Wrapper = styled('div')`
   width: 100%;
@@ -17,4 +22,13 @@ export const Wrapper = styled('div')`
   background-color: ${({ theme }) => theme.palette.background.paper};
   border-top-left-radius: 24px;
   border: ${({ theme }) => `1px solid ${theme.palette.colors['Grayscale-Border']}`};
+
+  ${({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+      height: 'auto',
+      marginTop: 0,
+      borderRadius: 0,
+      border: 0,
+    },
+  })}
 `
