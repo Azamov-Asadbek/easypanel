@@ -1,5 +1,6 @@
 import { Grid, Stack, Tab, Tabs, Typography } from '@mui/material'
 import { useState } from 'react'
+import { FormSection } from './components/form'
 
 export const Content = () => {
   const [value, setValue] = useState(0)
@@ -24,9 +25,7 @@ export const Content = () => {
           <Tab value={3} label='Git' />
         </Tabs>
       </Stack>
-      <Stack p='16px' borderRadius='8px' gap='24px'>
-        <Grid container></Grid>
-      </Stack>
+      <FormSection />
     </Stack>
   )
 }

@@ -428,6 +428,44 @@ export const theme = extendTheme({
         }),
       },
     },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          position: 'static',
+          height: 'auto',
+          transform: 'translate(0) scale(1)',
+          fontSize: '14px',
+          color: theme.palette.colors['Grayscale-Content-2'],
+          marginBottom: '8px',
+        }),
+      },
+    },
+
+    MuiTextField: {
+      defaultProps: {
+        variant: 'outlined',
+      },
+
+      variants: [
+        {
+          props: { variant: 'outlined' },
+          style: ({ theme }) => ({
+            minHeight: '40px',
+            input: {
+              fontSize: '16px',
+            },
+            '.MuiInputBase-root': {
+              padding: 0,
+              borderRadius: '8px',
+              height: '40px',
+              minHeight: '40px',
+              paddingLeft: '6px',
+            },
+          }),
+        },
+      ],
+    },
+
     MuiOutlinedInput: {
       styleOverrides: {
         root: ({ theme }) => ({
@@ -440,6 +478,9 @@ export const theme = extendTheme({
             borderWidth: '1px',
             borderColor: theme.palette.colors['Grayscale-Border'],
             boxShadow: `0px 1px 1px 0px ${theme.palette.allColors.BLACK10}`,
+            legend: {
+              display: 'none',
+            },
           },
           '&:hover .MuiOutlinedInput-notchedOutline': {
             borderColor: `${theme.palette.colors.Brand} !important`,
@@ -515,7 +556,16 @@ export const theme = extendTheme({
         },
       },
     },
-
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          marginLeft: 0,
+          fontSize: '12px',
+          fontWeight: 400,
+          color: theme.palette.allColors.RED,
+        }),
+      },
+    },
     MuiTab: {
       styleOverrides: {
         root: ({ theme }) => ({
