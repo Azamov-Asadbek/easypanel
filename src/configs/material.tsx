@@ -255,6 +255,15 @@ export const theme = extendTheme({
       },
       variants: [
         {
+          props: { variant: 'contained' },
+          style: ({ theme }) => ({
+            border: `1px solid ${theme.palette.colors['Brand-Border']}`,
+            textShadow: `0px 1px 1px ${theme.palette.allColors.BLACK10}`,
+            color: theme.palette.allColors.WHITE,
+            background: theme.palette.colors['Brand-gradiend'],
+          }),
+        },
+        {
           props: { variant: 'text' },
           style: ({ theme }) => ({
             boxShadow: 'none !important',
