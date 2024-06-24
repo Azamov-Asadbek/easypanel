@@ -20,7 +20,7 @@ export const Content = () => {
       <Stack>
         <Tabs value={value} onChange={handleChange}>
           <Tab value={0} label='Upload' />
-          <Tab value={1} label='Upload' />
+          <Tab value={1} label='GitHub' />
           <Tab value={2} label='Docker Image' />
           <Tab value={3} label='Git' />
         </Tabs>

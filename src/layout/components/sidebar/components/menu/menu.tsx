@@ -18,7 +18,9 @@ export const MenuContent = () => {
     <Stack
       justifyContent='space-between'
       p='24px 16px'
+      gap='64px'
       borderRight={theme => `1px solid${theme.palette.colors['Grayscale-Border']}`}
+      sx={{ overflowY: 'auto' }}
     >
       <Stack gap='48px' width='100%' alignItems='center'>
         <Link to='/'>{mode === 'light' ? <IconLightLogo /> : <IconDarkLogo />}</Link>

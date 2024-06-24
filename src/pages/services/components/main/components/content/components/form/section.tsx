@@ -31,7 +31,7 @@ export const FormSection = () => {
         control={form.control}
         helperText='Enter a public image name from any Docker registry'
       />
-      <Stack direction='row' width='100%' gap='16px'>
+      <Stack direction={{ lg: 'row' }} width='100%' gap='16px'>
         <Input
           fullWidth
           label='Username'

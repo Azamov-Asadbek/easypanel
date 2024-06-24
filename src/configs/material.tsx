@@ -484,14 +484,17 @@ export const theme = extendTheme({
           },
           '&:hover .MuiOutlinedInput-notchedOutline': {
             borderColor: `${theme.palette.colors.Brand} !important`,
+            boxShadow: theme.palette.allColors.BRANDFOCUSED + ' !important',
           },
           '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderWidth: '1px',
             borderColor: `${theme.palette.colors.Brand} !important`,
+            boxShadow: theme.palette.allColors.BRANDFOCUSED + ' !important',
           },
           '&.Mui-error .MuiOutlinedInput-notchedOutline': {
             borderWidth: '1px',
             borderColor: `${theme.palette.allColors.RED} !important`,
+            boxShadow: theme.palette.allColors.REDFOCUSED + ' !important',
           },
         }),
       },

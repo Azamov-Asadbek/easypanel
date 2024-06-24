@@ -5,7 +5,7 @@ export const COLORS = {
   BRAND: '#0BA864',
   BRANDGRADIENT:
     'linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.00) 100%), #0BA864',
-
+  BRANDFOCUSED: '0px 0px 2px 2px rgba(22, 209, 128, 0.15)',
   BRAND10: '#D5F5E6',
   BRAND20: '#F4FBF8',
   BRAND30: '#16D180',
@@ -22,6 +22,7 @@ export const COLORS = {
   GREY40: '#313131',
   GREY50: '#767676',
   RED: '#E92C2C',
+  REDFOCUSED: '0px 0px 2px 2px rgba(233, 44, 44, 0.15)',
   REDGRADIENT:
     'linear-gradient(0deg, rgba(255, 59, 59, 0.10) 0%, rgba(255, 59, 59, 0.10) 100%), #FFF',
 }
