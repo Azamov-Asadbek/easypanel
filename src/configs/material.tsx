@@ -559,10 +559,17 @@ export const theme = extendTheme({
     MuiFormHelperText: {
       styleOverrides: {
         root: ({ theme }) => ({
-          marginLeft: 0,
-          fontSize: '12px',
-          fontWeight: 400,
-          color: theme.palette.allColors.RED,
+          marginTop: '8px',
+          marginLeft: '2px',
+          fontSize: '13px',
+          color: theme.palette.colors['Grayscale-Content-3'],
+          '&.error': {
+            fontSize: '12px',
+            fontWeight: 400,
+            marginTop: '4px',
+            marginLeft: 0,
+            color: theme.palette.allColors.RED,
+          },
         }),
       },
     },
