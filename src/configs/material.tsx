@@ -23,6 +23,7 @@ interface TypographyProps {
   link: React.CSSProperties
   'Caps / Caps 2 - 12 Regular': React.CSSProperties
   'Heading / H4 - 20': React.CSSProperties
+  'Paragraph / P2 - 20': React.CSSProperties
   'Heading / H5 - 16': React.CSSProperties
   'Badge-x-base': React.CSSProperties
 }
@@ -38,6 +39,7 @@ declare module '@mui/material/Typography' {
     link: true
     'Caps / Caps 2 - 12 Regular': true
     'Heading / H4 - 20': true
+    'Paragraph / P2 - 20': true
     'Heading / H5 - 16': true
     'Badge-x-base': true
   }
@@ -46,6 +48,7 @@ declare module '@mui/material/Typography' {
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
     white: true
+    'active-text': true
   }
   interface ButtonPropsSizeOverrides {
     extraLarge: true
@@ -191,6 +194,15 @@ export const theme = extendTheme({
           }),
         },
         {
+          props: { variant: 'Paragraph / P2 - 20' },
+          style: ({ theme }) => ({
+            fontSize: '16px',
+            fontWeight: 400,
+            lineHeight: '24px',
+            color: theme.palette.colors['Grayscale-Content-2'],
+          }),
+        },
+        {
           props: { variant: 'Badge-x-base' },
           style: ({ theme }) => ({
             padding: '2px 6px',
@@ -268,6 +280,14 @@ export const theme = extendTheme({
           style: ({ theme }) => ({
             boxShadow: 'none !important',
             color: theme.palette.colors['Grayscale-Content-2'],
+          }),
+        },
+        {
+          props: { variant: 'active-text' },
+          style: ({ theme }) => ({
+            boxShadow: 'none !important',
+            color: theme.palette.colors.Brand,
+            background: theme.palette.colors['Brand-background'],
           }),
         },
         {
@@ -482,6 +502,35 @@ export const theme = extendTheme({
       styleOverrides: {
         root: ({ theme }) => ({
           borderColor: theme.palette.colors['Grayscale-Border'],
+        }),
+      },
+    },
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          minHeight: '40px',
+          '.MuiTabs-flexContainer': {
+            gap: '32px !important',
+          },
+        },
+      },
+    },
+
+    MuiTab: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          minWidth: 'auto',
+          maxHeight: 'auto',
+          minHeight: 'auto',
+          fontSize: '16px',
+          fontWeight: 500,
+          lineHeight: '24px',
+          textTransform: 'inherit',
+          color: theme.palette.colors['Grayscale-Content-1'],
+          padding: '8px 0 !important',
+          '.MuiTouchRipple-root': {
+            display: 'none',
+          },
         }),
       },
     },

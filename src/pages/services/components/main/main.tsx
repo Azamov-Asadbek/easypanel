@@ -5,6 +5,8 @@ import { ReactComponent as IconLogs } from '@/assets/icons/logs.svg'
 import { ReactComponent as IconConsole } from '@/assets/icons/terminal.svg'
 import { ReactComponent as IconBuild } from '@/assets/icons/force-build.svg'
 import { ReactComponent as IconDestroy } from '@/assets/icons/delete.svg'
+import { Sidebar } from './components/sidebar'
+import { Content } from './components/content'
 
 const buttons = [
   { name: 'Deploy', Icon: IconDeploy, isActive: true },
@@ -16,8 +18,8 @@ const buttons = [
 ]
 export const MainContent = () => {
   return (
-    <Stack p='24px' width='100%' gap='24px'>
-      <Stack direction='row' alignItems='center' gap='16px'>
+    <Stack p='24px' width='100%' gap='16px'>
+      <Stack direction='row' alignItems='center' gap='16px' flexWrap='wrap' pb='24px'>
         {buttons?.map(({ name, Icon, isActive }) => (
           <Button
             size='small'
@@ -28,6 +30,11 @@ export const MainContent = () => {
             {name}
           </Button>
         ))}
+      </Stack>
+
+      <Stack direction='row' gap='24px'>
+        <Sidebar />
+        <Content />
       </Stack>
     </Stack>
   )

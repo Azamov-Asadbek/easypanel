@@ -3,10 +3,17 @@ import { Button, Stack, Typography } from '@mui/material'
 
 export const Header = () => {
   return (
-    <Stack width='100%' p='24px' direction='row' justifyContent='space-between' gap='16px'>
+    <Stack
+      width='100%'
+      p='24px'
+      direction='row'
+      justifyContent='space-between'
+      gap='16px'
+      flexWrap='wrap'
+    >
       <Stack gap='4px'>
         <Stack gap='8px' direction='row' alignItems='center'>
-          <Typography component='h4' variant='Heading / H4 - 20'>
+          <Typography component='h1' variant='Heading / H4 - 20'>
             Sparklens
           </Typography>
           <Typography variant='Badge-x-base'>APP</Typography>
