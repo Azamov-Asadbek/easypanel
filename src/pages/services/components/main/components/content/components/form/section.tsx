@@ -1,4 +1,4 @@
-import { Box, Button, Stack } from '@mui/material'
+import { Box, Button, Stack, useMediaQuery, useTheme } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { type SchemaType, schema } from './form.schema'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -6,6 +6,8 @@ import { InputPassword } from '@/components/inputs/input-password'
 import { Input } from '@/components/inputs/input'
 
 export const FormSection = () => {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   const form = useForm<SchemaType>({
     mode: 'onChange',
     resolver: yupResolver(schema),
@@ -48,7 +50,9 @@ export const FormSection = () => {
         />
       </Stack>
       <Box>
-        <Button type='submit'>Save changes</Button>
+        <Button sx={{ justifyContent: 'center' }} fullWidth={isMobile} type='submit'>
+          Save changes
+        </Button>
       </Box>
     </Stack>
   )

@@ -3,7 +3,7 @@ import { ReactComponent as IconSearch } from '@/assets/icons/search.svg'
 import { Input } from '@/components/inputs/input'
 import { ROUTER } from '@/constants/router'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { InputAdornment, Stack } from '@mui/material'
+import { Divider, InputAdornment, Stack } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { Menu } from '../mobileMenu'
@@ -19,34 +19,38 @@ export const Header = () => {
     alert(data)
   }
   return (
-    <Stack
-      component='form'
-      onSubmit={form.handleSubmit(onSubmit)}
-      p='24px 16px'
-      direction='row'
-      alignItems='center'
-      justifyContent='space-between'
-      gap='24px'
-      bgcolor={theme => theme.palette.background.paper}
-    >
-      <Link to={ROUTER.HOME}>
-        <IconLogo />
-      </Link>
-      <Input
-        fullWidth
-        placeholder='Search services ...'
-        name='search'
-        control={form.control}
-        className='header'
-        InputProps={{
-          startAdornment: (
-            <InputAdornment sx={{ width: '20px' }} position='start'>
-              <IconSearch />
-            </InputAdornment>
-          ),
-        }}
-      />
-      <Menu />
-    </Stack>
+    <>
+      <Stack
+        component='form'
+        onSubmit={form.handleSubmit(onSubmit)}
+        p='24px 16px'
+        direction='row'
+        alignItems='center'
+        justifyContent='space-between'
+        gap='24px'
+        bgcolor={theme => theme.palette.background.paper}
+      >
+        <Link to={ROUTER.HOME}>
+          <IconLogo />
+        </Link>
+        <Input
+          fullWidth
+          placeholder='Search services ...'
+          name='search'
+          control={form.control}
+          className='header'
+          InputProps={{
+            startAdornment: (
+              <InputAdornment sx={{ width: '20px' }} position='start'>
+                <IconSearch />
+              </InputAdornment>
+            ),
+          }}
+        />
+        <Menu />
+      </Stack>
+
+      <Divider />
+    </>
   )
 }

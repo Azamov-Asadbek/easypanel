@@ -372,10 +372,13 @@ export const theme = extendTheme({
         {
           props: { color: 'filled' },
           style: ({ theme }) => ({
-            border: `1px solid${theme.palette.colors['Grayscale-Border']}`,
+            border: `1px solid${theme.palette.colors['Brand-Border']}`,
             borderRadius: '4px',
-            backgroundColor: theme.palette.colors.Brand,
+            background: theme.palette.colors['Brand-gradiend'],
             boxShadow: `0px 1px 1px 0px ${theme.palette.allColors.BLACK10}`,
+            path: {
+              fill: theme.palette.allColors.WHITE,
+            },
             '&:hover': {
               backgroundColor: theme.palette.colors.Brand,
             },
@@ -533,7 +536,7 @@ export const theme = extendTheme({
       },
       defaultProps: {
         MenuProps: {
-          style: { zIndex: 9500, maxHeight: '300px' },
+          style: { zIndex: 9500, maxHeight: '300px', fontSize: '13px' },
         },
         IconComponent: props => (
           <Box
@@ -615,6 +618,32 @@ export const theme = extendTheme({
           padding: '8px 0 !important',
           '.MuiTouchRipple-root': {
             display: 'none',
+          },
+        }),
+      },
+    },
+    MuiAlert: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          padding: '8px 16px',
+          alignItems: 'center',
+
+          '.MuiAlert-icon': {
+            width: '20px',
+            marginRight: '8px !important',
+          },
+          '.MuiAlert-message': {
+            padding: 0,
+            fontSize: '13px',
+            lineHeight: '20px',
+            fontWeight: 400,
+            color: theme.palette.colors['Grayscale-Content-2'],
+          },
+          '.MuiAlert-action': {
+            marginRight: '0 !important',
+            marginBottom: 0,
+            padding: 0,
+            paddinLeft: '16px',
           },
         }),
       },
